@@ -51,6 +51,17 @@
   font-style: normal;
 }
 
+.info-card__link {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-weight: 400;
+  color: var(--color-primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .location__map {
   --map-height: 22rem;
 

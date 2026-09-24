@@ -22,7 +22,7 @@ export const HOME_CONTENT_DATA: HomeContent = {
     ],
     image: { ...IMAGES.about, alt: 'Retrato de Ana Silva' },
     highlights: [
-      { value: '+500', label: 'Clientes atendidas' },
+      { value: '+3 mil', label: 'Clientes atendidas' },
       { value: '+6', label: 'Anos de experiência' },
       { value: '100%', label: 'Dedicação' },
     ],
@@ -32,6 +32,7 @@ export const HOME_CONTENT_DATA: HomeContent = {
     eyebrow: 'Localização',
     title: 'Onde Estamos',
     addressTitle: 'Endereço',
+    directionsLabel: 'Como chegar',
     hoursTitle: 'Horário de funcionamento',
     mapPlaceholder: { title: 'Mapa em breve', text: 'Localização será exibida aqui.' },
   },

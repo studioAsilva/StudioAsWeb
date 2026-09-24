@@ -13,7 +13,7 @@ export const IMAGES = {
   about: image('about.webp', 1200, 1500),
   productTabela: image('product-tabela.webp', 900, 640),
   productTabelaThumb: image('product-tabela-thumb.webp', 240, 240),
-  // Prontas para quando os produtos forem adicionados:
   productMentoria: image('product-mentoria.webp', 900, 640),
   productPerfume: image('product-perfume.webp', 900, 640),
+  productGuia: image('product-guia.webp', 900, 640),
 } as const;

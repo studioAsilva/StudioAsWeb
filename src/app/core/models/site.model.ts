@@ -16,11 +16,12 @@ export interface ContactInfo {
   whatsappNumber: string;
   whatsappMessage: string;
   phoneDisplay: string;
-  email: string;
   addressLines: string[];
   hours: string[];
   /** URL do "Incorporar mapa" do Google Maps. Vazio = exibe placeholder. */
   mapEmbedUrl: string;
+  /** Link do perfil no Google ("Como chegar"). */
+  mapLink: string;
 }
 
 export interface SiteContent {

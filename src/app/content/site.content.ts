@@ -24,14 +24,11 @@ export const SITE_CONTENT_DATA: SiteContent = {
     whatsappNumber: WHATSAPP_NUMBER,
     whatsappMessage: 'Olá! Vim pelo site do Studio Ana Silva.',
     phoneDisplay: '(31) 99172-8641',
-    email: 'contato@estudioanasilva.com.br',
-    addressLines: [
-      'Rua das Flores, 123 — Sala 45',
-      'Bairro Jardim Rosa',
-      'São Paulo — SP, CEP 00000-000',
-    ],
+    addressLines: ['Rua Poata, 604', 'Bairro Eldorado', 'Contagem — MG'],
     hours: ['Segunda a Sexta: 9h às 19h', 'Sábado: 9h às 16h', 'Domingo: Fechado'],
-    mapEmbedUrl: '',
+    mapEmbedUrl:
+      'https://www.google.com/maps?q=Studio+Ana+Silva,+Rua+Poata,+604+-+Eldorado,+Contagem+-+MG&output=embed',
+    mapLink: 'https://share.google/GZ2KskYtefj0thDRm',
   },
 
   social: [
