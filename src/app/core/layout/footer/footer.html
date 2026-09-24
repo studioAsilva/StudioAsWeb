@@ -12,10 +12,7 @@
           </li>
         }
       </ul>
-      <p class="footer__contact">
-        {{ contact.phoneDisplay }} ·
-        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-      </p>
+      <p class="footer__contact">{{ contact.phoneDisplay }}</p>
       <p class="footer__copy">© {{ year }} {{ content.footer.copyright }}</p>
     </div>
   </div>

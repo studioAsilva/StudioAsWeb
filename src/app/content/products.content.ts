@@ -35,7 +35,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Tenha um material bonito, profissional e alinhado ao seu negócio para apresentar seus serviços com mais segurança e conquistar a confiança das suas clientes.',
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
-      priceInCents: 4990,
+      priceInCents: 4990, // TODO: valor provisório, a definir
       image: { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
       thumbnail: { ...IMAGES.productTabelaThumb, alt: '' },
       buyLabel: 'Quero minha tabela editável',
@@ -77,8 +77,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Transforme as dúvidas do pós-procedimento em uma oportunidade de demonstrar cuidado, fortalecer a confiança e oferecer uma experiência ainda mais completa.',
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
-      // TODO: definir preço e imagem própria do guia.
-      image: { ...IMAGES.productTabela, alt: 'Guia Pós-Procedimento Capilar' },
+      image: { ...IMAGES.productGuia, alt: 'Retrato de Ana Silva' },
       buyLabel: 'Quero meu guia pós-procedimento',
     },
     {
@@ -99,7 +98,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Para o dia a dia ou uma ocasião especial, finalize seus cuidados com o toque perfumado do Studio AS.',
       ],
       highlight: 'Seu perfume favorito também pode estar nos seus cabelos.',
-      priceInCents: 8990,
+      priceInCents: 8990, // TODO: valor provisório, a definir
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',
     },

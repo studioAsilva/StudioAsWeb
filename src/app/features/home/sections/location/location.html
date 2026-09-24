@@ -22,6 +22,14 @@
                 <span>{{ line }}</span>
               }
             </address>
+            <a
+              class="info-card__link"
+              [href]="contact().mapLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ c.directionsLabel }} →
+            </a>
           </div>
         </article>
 

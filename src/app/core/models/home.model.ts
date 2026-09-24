@@ -27,6 +27,7 @@ export interface LocationContent {
   eyebrow: string;
   title: string;
   addressTitle: string;
+  directionsLabel: string;
   hoursTitle: string;
   mapPlaceholder: { title: string; text: string };
 }
