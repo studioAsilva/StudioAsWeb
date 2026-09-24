@@ -3,7 +3,7 @@ import { IMAGES } from './images';
 
 export const HOME_CONTENT_DATA: HomeContent = {
   hero: {
-    eyebrow: 'Estúdio de beleza',
+    eyebrow: 'Studio de beleza',
     title: 'Studio',
     titleHighlight: 'Ana Silva',
     subtitle: 'Beleza, cuidado e conhecimento para transformar.',
