@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container header__inner">
-    <a routerLink="/" (click)="closeMenu()" [attr.aria-label]="content.brand.name + ' — início'">
-      <app-logo />
+    <a routerLink="/" (click)="closeMenu()">
+      <app-logo [priority]="true" />
     </a>
 
     <button
