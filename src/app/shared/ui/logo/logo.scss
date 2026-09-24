@@ -1,32 +1,15 @@
 :host {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  color: var(--color-primary);
+  --logo-height: 3.5rem;
+
+  display: inline-block;
+  line-height: 0;
 }
 
-.logo__mark {
-  font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-style: italic;
+.logo {
+  width: auto;
+  height: var(--logo-height);
 }
 
-.logo__name {
-  margin-top: 0.1rem;
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.logo__sub {
-  margin-top: 0.2rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-:host(.is-inverse) {
-  color: var(--color-on-dark);
+:host(.is-inverse) .logo {
+  filter: brightness(0) invert(1);
 }
