@@ -1,0 +1,12 @@
+@if (internal(); as link) {
+  <a [class]="classes()" [routerLink]="link.route" [fragment]="link.fragment">{{ link.label }}</a>
+} @else if (external(); as link) {
+  <a
+    [class]="classes()"
+    [href]="link.href"
+    [attr.target]="link.external ? '_blank' : null"
+    [attr.rel]="link.external ? 'noopener noreferrer' : null"
+  >
+    {{ link.label }}
+  </a>
+}

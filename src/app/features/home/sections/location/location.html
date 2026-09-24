@@ -1,0 +1,61 @@
+@let c = content();
+<section id="onde-estamos" class="section section--soft" aria-labelledby="onde-estamos-title">
+  <div class="container">
+    <app-section-heading
+      [eyebrow]="c.eyebrow"
+      [title]="c.title"
+      align="center"
+      headingId="onde-estamos-title"
+    />
+
+    <div class="location">
+      <div class="location__cards">
+        <article class="info-card">
+          <svg class="info-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" />
+            <circle cx="12" cy="9.5" r="2.5" />
+          </svg>
+          <div>
+            <h3 class="info-card__title">{{ c.addressTitle }}</h3>
+            <address class="info-card__lines">
+              @for (line of contact().addressLines; track line) {
+                <span>{{ line }}</span>
+              }
+            </address>
+          </div>
+        </article>
+
+        <article class="info-card">
+          <svg class="info-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 2" />
+          </svg>
+          <div>
+            <h3 class="info-card__title">{{ c.hoursTitle }}</h3>
+            <ul class="info-card__lines">
+              @for (line of contact().hours; track line) {
+                <li>{{ line }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="location__map">
+        @if (mapUrl(); as url) {
+          <iframe
+            [src]="url"
+            title="Mapa com a localização do estúdio"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        } @else {
+          <div class="map-placeholder">
+            <p class="map-placeholder__title">{{ c.mapPlaceholder.title }}</p>
+            <p>{{ c.mapPlaceholder.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+@if (eyebrow()) {
+  <p class="eyebrow">{{ eyebrow() }}</p>
+}
+@if (level() === 1) {
+  <h1 class="title" [id]="headingId()">{{ title() }}</h1>
+} @else {
+  <h2 class="title" [id]="headingId()">{{ title() }}</h2>
+}
+@if (divider()) {
+  <span class="divider" aria-hidden="true"></span>
+}
+@if (subtitle()) {
+  <p class="subtitle">{{ subtitle() }}</p>
+}

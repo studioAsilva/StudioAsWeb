@@ -1,0 +1,75 @@
+@use 'mixins' as *;
+
+.about {
+  display: grid;
+  gap: var(--space-16);
+  align-items: center;
+
+  @include up(md) {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+}
+
+.about__media {
+  position: relative;
+  padding: var(--space-6) 0 0 var(--space-6);
+
+  // Cartão decorativo atrás da foto
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 var(--space-6) var(--space-6) 0;
+    background: var(--color-accent-soft);
+    border-radius: var(--radius-lg);
+  }
+
+  img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+app-section-heading {
+  margin-bottom: var(--space-8);
+}
+
+.about__paragraph + .about__paragraph {
+  margin-top: var(--space-6);
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-12) 0 0;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-2);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.highlight__value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.highlight__label {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+}

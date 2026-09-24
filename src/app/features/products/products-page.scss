@@ -1,0 +1,10 @@
+.page-header app-section-heading {
+  margin-bottom: 0;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 28rem));
+  justify-content: center;
+  gap: var(--space-8);
+}

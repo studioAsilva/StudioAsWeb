@@ -1,0 +1,19 @@
+@use 'sass:map';
+// Breakpoints e mixins compartilhados. Use nos componentes com `@use 'mixins' as *;`
+$breakpoints: (
+  sm: 36rem,
+  md: 48rem,
+  lg: 64rem,
+);
+
+@mixin up($name) {
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin down($name) {
+  @media (max-width: calc(#{map.get($breakpoints, $name)} - 0.02rem)) {
+    @content;
+  }
+}

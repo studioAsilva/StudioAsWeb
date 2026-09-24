@@ -1,0 +1,22 @@
+@let contact = content.contact;
+<footer class="footer">
+  <div class="container footer__inner">
+    <app-logo [inverse]="true" />
+
+    <div class="footer__info">
+      <p class="footer__title">{{ content.footer.socialTitle }}</p>
+      <ul class="footer__social">
+        @for (item of content.social; track item.href) {
+          <li>
+            <a [href]="item.href" target="_blank" rel="noopener noreferrer">{{ item.label }}</a>
+          </li>
+        }
+      </ul>
+      <p class="footer__contact">
+        {{ contact.phoneDisplay }} ·
+        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+      </p>
+      <p class="footer__copy">© {{ year }} {{ content.footer.copyright }}</p>
+    </div>
+  </div>
+</footer>

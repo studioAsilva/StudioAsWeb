@@ -1,0 +1,27 @@
+<section class="section section--soft page-header">
+  <div class="container">
+    <app-section-heading
+      [eyebrow]="content.eyebrow"
+      [title]="content.title"
+      [subtitle]="content.subtitle"
+      [level]="1"
+      align="center"
+    />
+  </div>
+</section>
+
+<section class="section" aria-label="Lista de produtos">
+  <div class="container">
+    <ul class="products">
+      @for (product of products; track product.id) {
+        <li>
+          <app-product-card [product]="product" [priority]="$first" (buy)="onBuy($event)" />
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+@if (selectedProduct(); as product) {
+  <app-checkout-dialog [product]="product" (closed)="selectedProduct.set(null)" />
+}

@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  margin-bottom: var(--space-12);
+}
+
+:host(.is-centered) {
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--fs-xl);
+}
+
+.divider {
+  display: block;
+  width: 3.75rem;
+  height: 1px;
+  margin-top: var(--space-8);
+  background: var(--color-primary);
+}
+
+.subtitle {
+  margin-top: var(--space-8);
+  color: var(--color-text);
+}
+
+:host(.is-inverse) .title {
+  color: var(--color-on-dark);
+}

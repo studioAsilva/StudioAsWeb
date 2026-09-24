@@ -1,0 +1,34 @@
+@let c = content();
+<section id="quem-somos" class="section" aria-labelledby="quem-somos-title">
+  <div class="container about">
+    <div class="about__media">
+      <img
+        [ngSrc]="c.image.src"
+        [alt]="c.image.alt"
+        [width]="c.image.width"
+        [height]="c.image.height"
+      />
+    </div>
+
+    <div class="about__text">
+      <app-section-heading
+        [eyebrow]="c.eyebrow"
+        [title]="c.title"
+        [divider]="true"
+        headingId="quem-somos-title"
+      />
+      @for (paragraph of c.paragraphs; track $index) {
+        <p class="about__paragraph">{{ paragraph }}</p>
+      }
+
+      <dl class="about__highlights">
+        @for (item of c.highlights; track item.label) {
+          <div class="highlight">
+            <dt class="highlight__value">{{ item.value }}</dt>
+            <dd class="highlight__label">{{ item.label }}</dd>
+          </div>
+        }
+      </dl>
+    </div>
+  </div>
+</section>

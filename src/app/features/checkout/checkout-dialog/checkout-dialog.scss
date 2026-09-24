@@ -1,0 +1,221 @@
+@use 'mixins' as *;
+
+.dialog {
+  width: min(35rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-md);
+
+  &::backdrop {
+    background: rgb(91 45 48 / 45%);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--color-bg-soft);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary__image {
+  flex: none;
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-md);
+}
+
+.summary__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.summary__eyebrow {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.1em;
+}
+
+.summary__name {
+  font-size: 1.4rem;
+}
+
+.summary__price {
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.summary__close {
+  align-self: flex-start;
+  padding: var(--space-1);
+  border: 0;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.form,
+.feedback {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-8) var(--space-8);
+}
+
+.fieldset {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form__label {
+  margin-bottom: var(--space-3);
+  padding: 0;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+}
+
+.methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.method {
+  position: relative;
+
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  span {
+    display: grid;
+    place-items: center;
+    height: 3rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--color-heading);
+    cursor: pointer;
+    transition:
+      border-color var(--transition),
+      background-color var(--transition);
+  }
+
+  input:checked + span {
+    border-color: var(--color-primary);
+    background: var(--color-bg-soft);
+  }
+
+  input:focus-visible + span {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-soft);
+  font-weight: 300;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+  }
+}
+
+.error {
+  margin-top: calc(var(--space-2) * -1);
+  font-size: var(--fs-xs);
+  color: var(--color-error);
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-block: var(--space-2);
+  padding-block: var(--space-6);
+  border-block: 1px solid var(--color-border);
+}
+
+.total__value {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-heading);
+}
+
+.link-button {
+  justify-self: center;
+  padding: var(--space-2);
+  border: 0;
+  background: none;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.feedback__title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-heading);
+}
+
+// Celular: layout mais compacto
+@include down(sm) {
+  .summary {
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4) var(--space-6) var(--space-6);
+  }
+
+  .summary__image {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .summary__eyebrow {
+    font-size: var(--fs-xs);
+    line-height: 1.4;
+  }
+
+  .summary__name {
+    font-size: 1.2rem;
+  }
+
+  .form,
+  .feedback {
+    padding: var(--space-4) var(--space-6) var(--space-6);
+  }
+
+  .methods {
+    gap: var(--space-2);
+  }
+}

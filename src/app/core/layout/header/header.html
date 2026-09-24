@@ -1,0 +1,44 @@
+<header class="header">
+  <div class="container header__inner">
+    <a routerLink="/" (click)="closeMenu()" [attr.aria-label]="content.brand.name + ' — início'">
+      <app-logo />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-controls="main-nav"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="toggleMenu()"
+    >
+      <span class="visually-hidden">{{ menuOpen() ? 'Fechar menu' : 'Abrir menu' }}</span>
+      <span class="menu-toggle__bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="main-nav" class="nav" [class.is-open]="menuOpen()" aria-label="Principal">
+      <ul class="nav__list">
+        @for (link of content.nav; track link.label) {
+          <li>
+            <a
+              class="nav__link"
+              [routerLink]="link.route"
+              [fragment]="link.fragment"
+              (click)="closeMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+        <li>
+          <a
+            class="btn btn--primary btn--md"
+            [routerLink]="content.headerCta.route"
+            (click)="closeMenu()"
+          >
+            {{ content.headerCta.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

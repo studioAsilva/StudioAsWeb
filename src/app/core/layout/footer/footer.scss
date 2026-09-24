@@ -1,0 +1,60 @@
+@use 'mixins' as *;
+
+.footer {
+  padding-block: var(--space-12);
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  text-align: center;
+
+  @include up(md) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-align: right;
+  }
+}
+
+.footer__info {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.footer__title {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-on-dark-muted);
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  font-weight: 400;
+
+  @include up(md) {
+    justify-content: flex-end;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer__contact,
+.footer__copy {
+  font-size: var(--fs-sm);
+  color: var(--color-on-dark-muted);
+}
+
+.footer__copy {
+  opacity: 0.8;
+}

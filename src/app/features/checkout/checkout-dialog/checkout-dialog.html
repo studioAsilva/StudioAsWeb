@@ -1,0 +1,121 @@
+@let p = product();
+@let thumb = p.thumbnail ?? p.image;
+<dialog
+  #dialog
+  class="dialog"
+  aria-labelledby="checkout-title"
+  (close)="closed.emit()"
+  (click)="onBackdropClick($event)"
+>
+  <header class="summary">
+    <img
+      class="summary__image"
+      [ngSrc]="thumb.src"
+      alt=""
+      [width]="thumb.width"
+      [height]="thumb.height"
+    />
+    <div class="summary__text">
+      <p class="eyebrow summary__eyebrow">Você está comprando</p>
+      <h2 id="checkout-title" class="summary__name">{{ p.name }}</h2>
+      <p class="summary__price">{{ p.priceInCents / 100 | currency }}</p>
+    </div>
+    <button class="summary__close" type="button" aria-label="Fechar" (click)="close()">×</button>
+  </header>
+
+  @switch (state()) {
+    @case ('unavailable') {
+      <div class="feedback">
+        <p class="feedback__title">Pagamento online em breve</p>
+        <p>Enquanto isso, finalize sua compra pelo WhatsApp — respondemos rapidinho.</p>
+        <a
+          class="btn btn--primary btn--lg btn--block"
+          [href]="whatsappUrl()"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Comprar pelo WhatsApp
+        </a>
+        <button class="link-button" type="button" (click)="close()">Fechar</button>
+      </div>
+    }
+    @default {
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <fieldset class="fieldset">
+          <legend class="eyebrow form__label">Forma de pagamento</legend>
+          <div class="methods">
+            @for (option of paymentOptions; track option.value) {
+              <label class="method">
+                <input type="radio" formControlName="paymentMethod" [value]="option.value" />
+                <span>{{ option.label }}</span>
+              </label>
+            }
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="eyebrow form__label">Seus dados</legend>
+
+          <label class="visually-hidden" for="checkout-name">Nome completo</label>
+          <input
+            id="checkout-name"
+            class="input"
+            formControlName="name"
+            placeholder="Nome completo"
+            autocomplete="name"
+            [attr.aria-invalid]="hasError('name')"
+          />
+          @if (hasError('name')) {
+            <p class="error">Informe seu nome completo.</p>
+          }
+
+          <label class="visually-hidden" for="checkout-email">E-mail</label>
+          <input
+            id="checkout-email"
+            class="input"
+            type="email"
+            formControlName="email"
+            placeholder="E-mail"
+            autocomplete="email"
+            [attr.aria-invalid]="hasError('email')"
+          />
+          @if (hasError('email')) {
+            <p class="error">Informe um e-mail válido.</p>
+          }
+
+          <label class="visually-hidden" for="checkout-phone">Telefone / WhatsApp</label>
+          <input
+            id="checkout-phone"
+            class="input"
+            type="tel"
+            formControlName="phone"
+            placeholder="Telefone / WhatsApp"
+            autocomplete="tel"
+            [attr.aria-invalid]="hasError('phone')"
+          />
+          @if (hasError('phone')) {
+            <p class="error">Informe um telefone com DDD.</p>
+          }
+        </fieldset>
+
+        <div class="total">
+          <span>Total</span>
+          <span class="total__value">{{ p.priceInCents / 100 | currency }}</span>
+        </div>
+
+        @if (state() === 'error') {
+          <p class="error" role="alert">Não foi possível iniciar o pagamento. Tente novamente.</p>
+        }
+
+        <button
+          class="btn btn--primary btn--lg btn--block"
+          type="submit"
+          [disabled]="state() === 'submitting'"
+        >
+          {{ state() === 'submitting' ? 'Processando…' : 'Finalizar pagamento' }}
+        </button>
+        <button class="link-button" type="button" (click)="close()">Cancelar</button>
+      </form>
+    }
+  }
+</dialog>
