@@ -1,0 +1,32 @@
+<app-modal labelledBy="payment-return-title" (closed)="closed.emit()">
+  <div class="return">
+    <span class="return__icon"><app-icon name="check" /></span>
+
+    <h2 id="payment-return-title" class="return__title" tabindex="-1" autofocus>
+      Pagamento em processamento
+    </h2>
+    <p class="return__text">
+      Recebemos o seu pedido! Assim que o pagamento for aprovado, você receberá a confirmação e os
+      detalhes por e-mail. 💌
+    </p>
+
+    @if (product(); as p) {
+      @let thumb = p.thumbnail ?? p.image;
+      <div class="product">
+        <span class="product__image">
+          <img [ngSrc]="thumb.src" alt="" fill />
+        </span>
+        <div>
+          <p class="product__label">Produto adquirido</p>
+          <p class="product__name">{{ p.name }}</p>
+        </div>
+      </div>
+    }
+
+    <p class="return__hint">
+      Pagou com Pix? A aprovação pode levar alguns minutos. Confira também a caixa de spam.
+    </p>
+
+    <button class="btn btn--primary btn--lg" type="button" (click)="close()">Concluir</button>
+  </div>
+</app-modal>

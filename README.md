@@ -47,19 +47,24 @@ public/assets/images/               # arquivos de imagem
 - **Cores/fontes:** `src/styles/_tokens.scss` (e o link do Google Fonts em `src/index.html`).
 - **Seções** são componentes de apresentação: recebem conteúdo via `input()`.
 
-## Pagamento (Pagar.me) — próximos passos
+## Pagamento (Pagar.me)
 
-A UI do checkout depende só da abstração `CheckoutGateway`
-(`features/checkout/checkout.gateway.ts`). Hoje está registrada a
-`PendingCheckoutGateway`, que responde "pagamento em breve" e oferece o WhatsApp.
+Checkout por **link de pagamento**: cada produto tem o seu link, criado no painel do
+Pagar.me com preço fixo. O site não guarda nenhuma chave.
 
-Para integrar:
-1. Criar uma função serverless no Vercel (`api/checkout`) que recebe o pedido e cria
-   a order no Pagar.me usando a **secret key** (variável de ambiente — nunca no front).
-2. Criar `PagarmeCheckoutGateway` no front chamando `/api/checkout` e trocar o
-   provider em `app.config.ts`.
-3. Webhook `api/webhooks/pagarme` → ao receber `order.paid`, enviar o e-mail
-   formatado com o link de acesso ao produto.
+1. Cliente clica em **Comprar** → popup com resumo → **Ir para o pagamento**.
+2. Paga na página do Pagar.me (lá informa nome, e-mail, CPF, telefone e, no Perfume, o endereço).
+3. O Pagar.me devolve para `<site>/produtos?compra=<id-do-produto>` → popup
+   "Pagamento em processamento".
+4. Webhook do Pagar.me (pedido pago) → Make → e-mail para a cliente (com o link do produto)
+   e para a Ana (dados da venda).
+
+Para ativar um produto, preencha `paymentUrl` em `content/products.content.ts` e configure,
+no link do Pagar.me, a URL de retorno com o `id` do produto. Sem `paymentUrl`, o popup
+oferece a compra pelo WhatsApp.
+
+A UI depende só de `CheckoutGateway` (`features/checkout`); a implementação atual é
+`PaymentLinkCheckoutGateway` (registrada em `app.config.ts`).
 
 ## Deploy (Vercel)
 

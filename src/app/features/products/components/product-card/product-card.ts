@@ -13,5 +13,6 @@ export class ProductCard {
   readonly product = input.required<Product>();
   /** Marque nos cards visíveis ao carregar a página (melhora o LCP). */
   readonly priority = input(false);
+  readonly details = output<Product>();
   readonly buy = output<Product>();
 }

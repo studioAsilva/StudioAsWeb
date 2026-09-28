@@ -1,0 +1,249 @@
+@use 'mixins' as *;
+
+$pad: clamp(1.25rem, 4vw, 2.5rem);
+
+// Cabeçalho e rodapé fixos; o conteúdo rola entre eles
+.head,
+.foot {
+  position: sticky;
+  z-index: 2;
+  background: var(--color-surface);
+}
+
+.head {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) $pad;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.head__label {
+  font-size: var(--fs-sm);
+}
+
+.head__close {
+  padding: var(--space-1) var(--space-2);
+  border: 0;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.body {
+  padding: var(--space-6) $pad var(--space-8);
+}
+
+.gallery__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 45 / 32;
+  max-height: 24rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+}
+
+.gallery__main {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.gallery__thumbs {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  overflow-x: auto;
+}
+
+.thumb {
+  flex: none;
+  width: 5.5rem;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition:
+    opacity var(--transition),
+    border-color var(--transition);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &.is-active,
+  &:hover {
+    opacity: 1;
+  }
+
+  &.is-active {
+    border-color: var(--color-primary);
+  }
+}
+
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.price {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.divider {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin-top: var(--space-4);
+  background: var(--color-primary);
+}
+
+.tagline {
+  margin-top: var(--space-6);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.text {
+  margin-top: var(--space-4);
+}
+
+.highlight {
+  margin-top: var(--space-4);
+  font-weight: 400;
+  color: var(--color-heading);
+}
+
+.block {
+  margin-top: var(--space-8);
+}
+
+.block__title {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+}
+
+.block__lead {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-heading);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  li {
+    padding: var(--space-1) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg-soft);
+    font-size: var(--fs-sm);
+    font-weight: 400;
+  }
+}
+
+.features {
+  display: grid;
+  gap: var(--space-3) var(--space-8);
+  font-weight: 400;
+  color: var(--color-heading);
+
+  @include up(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    display: flex;
+    gap: var(--space-3);
+
+    &::before {
+      content: '';
+      flex: none;
+      width: 6px;
+      height: 6px;
+      margin-top: 0.65em;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+  }
+}
+
+.info {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+}
+
+.info__list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.info__item {
+  display: flex;
+  gap: var(--space-4);
+
+  dt {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.foot {
+  bottom: 0;
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) $pad;
+  border-top: 1px solid var(--color-border);
+}
+
+.foot__buy {
+  flex: 1;
+}
+
+// Celular: "Fechar" vira texto discreto; o × do topo também fecha
+@include down(sm) {
+  .foot {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .foot__close {
+    min-height: auto;
+    padding: var(--space-2);
+    border: 0;
+  }
+}

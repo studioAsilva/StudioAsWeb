@@ -2,13 +2,23 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { RouterLink } from '@angular/router';
 import { CallToAction } from '@core/models/common.model';
 
-export type CtaVariant = 'primary' | 'outline-light';
+export type CtaVariant = 'primary' | 'outline' | 'outline-light';
 export type CtaSize = 'md' | 'lg';
 
 @Component({
   selector: 'app-cta-link',
   imports: [RouterLink],
   templateUrl: './cta-link.html',
+  // O botão acompanha a largura do host (permite `app-cta-link { width: 100% }`)
+  styles: `
+    :host {
+      display: inline-flex;
+    }
+
+    a {
+      flex: 1;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CtaLink {

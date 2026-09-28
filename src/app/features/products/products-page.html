@@ -15,13 +15,30 @@
     <ul class="products">
       @for (product of products; track product.id) {
         <li>
-          <app-product-card [product]="product" [priority]="$first" (buy)="onBuy($event)" />
+          <app-product-card
+            [product]="product"
+            [priority]="$first"
+            (details)="detailsProduct.set($event)"
+            (buy)="onBuy($event)"
+          />
         </li>
       }
     </ul>
   </div>
 </section>
 
-@if (selectedProduct(); as product) {
-  <app-checkout-dialog [product]="product" (closed)="selectedProduct.set(null)" />
+@if (detailsProduct(); as product) {
+  <app-product-details
+    [product]="product"
+    (buy)="onBuy($event)"
+    (closed)="detailsProduct.set(null)"
+  />
+}
+
+@if (checkoutProduct(); as product) {
+  <app-checkout-dialog [product]="product" (closed)="checkoutProduct.set(null)" />
+}
+
+@if (compra() !== undefined) {
+  <app-payment-return [product]="purchasedProduct()" (closed)="closePaymentReturn()" />
 }

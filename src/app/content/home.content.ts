@@ -9,7 +9,8 @@ export const HOME_CONTENT_DATA: HomeContent = {
     subtitle: 'Beleza, cuidado e conhecimento para transformar.',
     text: 'No Studio AS, cada detalhe nasce de uma paixão: cuidar de pessoas e compartilhar o que aprendi ao longo da minha trajetória na beleza. Aqui você encontra produtos para continuar seu autocuidado em casa e materiais para profissionais que querem valorizar seu trabalho e crescer com mais segurança.',
     image: { ...IMAGES.hero, alt: 'Ana Silva, fundadora do Studio AS' },
-    cta: { label: 'Conheça o Studio AS', route: '/', fragment: 'quem-somos' },
+    cta: { label: 'Ver produtos', route: '/produtos' },
+    secondaryCta: { label: 'Conheça o Studio AS', route: '/', fragment: 'quem-somos' },
   },
 
   about: {

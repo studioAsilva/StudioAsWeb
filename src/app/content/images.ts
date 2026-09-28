@@ -16,4 +16,6 @@ export const IMAGES = {
   productMentoria: image('product-mentoria.webp', 900, 640),
   productPerfume: image('product-perfume.webp', 900, 640),
   productGuia: image('product-guia.webp', 900, 640),
+  productTabela2: image('product-tabela-2.webp', 900, 640),
+  productGuia2: image('product-guia-2.webp', 900, 640),
 } as const;

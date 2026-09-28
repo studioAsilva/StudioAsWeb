@@ -36,7 +36,17 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
       priceInCents: 4990, // TODO: valor provisório, a definir
+      info: [
+        {
+          icon: 'download',
+          title: 'Entrega',
+          text: 'Digital — por e-mail em até 24h após a confirmação do pagamento',
+        },
+        { icon: 'file', title: 'Formato', text: 'Arquivo editável no Canva' },
+        { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
+      ],
       image: { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
+      extraImages: [{ ...IMAGES.productTabela2, alt: 'Ana Silva com o cabelo liso' }],
       thumbnail: { ...IMAGES.productTabelaThumb, alt: '' },
       buyLabel: 'Quero minha tabela editável',
     },
@@ -48,21 +58,55 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       description:
         'Uma mentoria para profissionais da beleza que desejam valorizar seu trabalho, atender com mais segurança e administrar seu negócio com direção. Vou compartilhar minha experiência à frente do Studio AS para ajudar você a identificar o que precisa mudar e transformar seus objetivos em ações práticas.',
       features: [
-        'Diagnóstico do seu negócio e das principais dificuldades',
-        'Precificação para cobrar com mais segurança',
-        'Posicionamento e comunicação para atrair clientes que valorizam seu trabalho',
-        'Atendimento que fortalece a confiança e a fidelização',
-        'Orientação sobre escolha de produtos',
-        'Plano de ação personalizado para seus próximos passos',
+        'Análise da sua tabela de preços',
+        'Análise do seu Instagram',
+        'Fórmula de precificação',
+        'Plano de ação personalizado',
+        'Acesso à minha tabela de preços',
+        'Acesso ao meu guia pós-procedimento',
+        'Dicas de produtos e fornecedores',
+        'Materiais de apoio',
       ],
+      sections: [
+        {
+          title: 'O que vamos trabalhar',
+          items: [
+            'Precificação e formação de preços',
+            'Posicionamento profissional',
+            'Comunicação com clientes',
+            'Políticas de agendamento: sinal, atrasos e cancelamentos',
+            'Como dizer "não" e gestão de conflitos',
+            'Fidelização de clientes',
+            'Escolha e uso de produtos',
+            'Venda sem parecer insistente',
+            'Como transmitir valor nas redes sociais',
+            'Experiência da cliente, do início ao pós-atendimento',
+            'Como converter a cliente de química para tratamento',
+            'Prática dos procedimentos com dúvidas',
+          ],
+        },
+      ],
+      infoTitle: 'Como funciona',
+      info: [
+        { icon: 'clock', title: 'Online', text: '2 encontros com duração média de 1h' },
+        { icon: 'pin', title: 'Presencial', text: '2 encontros com duração média de 4h' },
+        {
+          icon: 'clock',
+          title: 'Pós-mentoria',
+          text: '1 encontro online com duração média de 50 min',
+        },
+        { icon: 'chat', title: 'Suporte', text: 'Pelo WhatsApp durante 60 dias' },
+        { icon: 'file', title: 'Certificado', text: 'Certificado de conclusão' },
+      ],
+      whatsappMessage: 'Olá Ana, vim através do site para contratar a mentoria!',
       // Sem preço definido: o botão leva ao WhatsApp.
       image: { ...IMAGES.productMentoria, alt: 'Ana Silva segurando uma tesoura' },
-      buyLabel: 'Quero saber mais',
+      buyLabel: 'Quero contratar a mentoria',
     },
     {
       id: 'guia-pos-procedimento',
       published: true,
-      name: 'Guia Pós-Procedimento Capilar',
+      name: 'Guia Pós-Procedimento Capilar Editável',
       tagline: 'Seu cuidado com a cliente continua depois que ela sai do salão.',
       description:
         'Um guia para profissionais da beleza que desejam apresentar as orientações pós-procedimento de forma clara e organizada, ajudando suas clientes a cuidar dos fios em casa.',
@@ -77,7 +121,21 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Transforme as dúvidas do pós-procedimento em uma oportunidade de demonstrar cuidado, fortalecer a confiança e oferecer uma experiência ainda mais completa.',
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
+      info: [
+        {
+          icon: 'download',
+          title: 'Entrega',
+          text: 'Digital — por e-mail em até 24h após a confirmação do pagamento',
+        },
+        {
+          icon: 'file',
+          title: 'Formato',
+          text: 'Arquivo editável para personalizar e enviar às suas clientes',
+        },
+        { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
+      ],
       image: { ...IMAGES.productGuia, alt: 'Retrato de Ana Silva' },
+      extraImages: [{ ...IMAGES.productGuia2, alt: 'Ana Silva sentada no Studio' }],
       buyLabel: 'Quero meu guia pós-procedimento',
     },
     {
@@ -98,6 +156,31 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Para o dia a dia ou uma ocasião especial, finalize seus cuidados com o toque perfumado do Studio AS.',
       ],
       highlight: 'Seu perfume favorito também pode estar nos seus cabelos.',
+      sections: [
+        {
+          title: 'Pirâmide olfativa',
+          lead: 'Floral branco luminoso',
+          items: [
+            'Flor de laranjeira',
+            'Bergamota',
+            'Tuberosa',
+            'Jasmim',
+            'Baunilha',
+            'Almíscar',
+            'Cedro',
+          ],
+        },
+      ],
+      info: [
+        {
+          icon: 'truck',
+          title: 'Entrega',
+          text: 'Produto físico — retirada no Studio ou envio combinado pelo WhatsApp após a confirmação do pagamento',
+        },
+        { icon: 'pin', title: 'Retirada', text: 'Rua Poata, 604 — Eldorado, Contagem/MG' },
+      ],
+      checkoutNotice:
+        'Produto físico: após a confirmação do pagamento, entraremos em contato pelo WhatsApp para combinar a entrega ou a retirada no Studio.',
       priceInCents: 8990, // TODO: valor provisório, a definir
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',

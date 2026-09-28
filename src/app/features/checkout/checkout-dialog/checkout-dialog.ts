@@ -1,34 +1,27 @@
 import { CurrencyPipe, DOCUMENT, NgOptimizedImage } from '@angular/common';
 import {
-  afterNextRender,
   ChangeDetectionStrategy,
   Component,
   computed,
-  ElementRef,
   inject,
   input,
   output,
   signal,
   viewChild,
 } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PaymentMethod } from '@core/models/checkout.model';
 import { PricedProduct } from '@core/models/product.model';
 import { SITE_CONTENT } from '@core/tokens/content.tokens';
 import { buildWhatsAppUrl } from '@core/utils/whatsapp';
+import { Icon } from '@shared/ui/icon/icon';
+import { Modal } from '@shared/ui/modal/modal';
 import { CheckoutGateway } from '../checkout.gateway';
-import { brazilianPhoneValidator } from '../phone.validator';
 
-type CheckoutState = 'idle' | 'submitting' | 'unavailable' | 'error';
+type CheckoutState = 'idle' | 'redirecting' | 'unavailable' | 'error';
 
-interface PaymentOption {
-  value: PaymentMethod;
-  label: string;
-}
-
+/** Resumo da compra antes de seguir para a página de pagamento. */
 @Component({
   selector: 'app-checkout-dialog',
-  imports: [ReactiveFormsModule, NgOptimizedImage, CurrencyPipe],
+  imports: [Modal, Icon, NgOptimizedImage, CurrencyPipe],
   templateUrl: './checkout-dialog.html',
   styleUrl: './checkout-dialog.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,23 +30,10 @@ export class CheckoutDialog {
   private readonly gateway = inject(CheckoutGateway);
   private readonly document = inject(DOCUMENT);
   private readonly contact = inject(SITE_CONTENT).contact;
-  private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
+  private readonly modal = viewChild.required(Modal);
 
   readonly product = input.required<PricedProduct>();
   readonly closed = output<void>();
-
-  protected readonly paymentOptions: PaymentOption[] = [
-    { value: 'pix', label: 'Pix' },
-    { value: 'credit_card', label: 'Crédito' },
-    { value: 'debit_card', label: 'Débito' },
-  ];
-
-  protected readonly form = inject(FormBuilder).nonNullable.group({
-    paymentMethod: ['pix' as PaymentMethod, Validators.required],
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, brazilianPhoneValidator]],
-  });
 
   protected readonly state = signal<CheckoutState>('idle');
 
@@ -61,41 +41,16 @@ export class CheckoutDialog {
     buildWhatsAppUrl(this.contact.whatsappNumber, `Olá! Quero comprar: ${this.product().name}.`),
   );
 
-  constructor() {
-    afterNextRender(() => this.dialog().nativeElement.showModal());
-  }
-
   protected close(): void {
-    this.dialog().nativeElement.close();
+    this.modal().close();
   }
 
-  /** Fecha ao clicar no fundo escurecido (fora do conteúdo). */
-  protected onBackdropClick(event: MouseEvent): void {
-    if (event.target === this.dialog().nativeElement) this.close();
-  }
-
-  protected hasError(control: 'name' | 'email' | 'phone'): boolean {
-    const c = this.form.controls[control];
-    return c.invalid && (c.touched || c.dirty);
-  }
-
-  protected async submit(): Promise<void> {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
-
-    const { paymentMethod, ...customer } = this.form.getRawValue();
-    this.state.set('submitting');
-
+  protected async goToPayment(): Promise<void> {
+    this.state.set('redirecting');
     try {
-      const result = await this.gateway.createOrder({
-        productId: this.product().id,
-        paymentMethod,
-        customer,
-      });
-
+      const result = await this.gateway.startCheckout({ productId: this.product().id });
       if (result.status === 'redirect') {
+        // Mesma aba: o Pagar.me traz a cliente de volta pela URL de retorno
         this.document.location.href = result.url;
         return;
       }

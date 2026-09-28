@@ -1,19 +1,9 @@
-export type PaymentMethod = 'pix' | 'credit_card' | 'debit_card';
-
-export interface CheckoutCustomer {
-  name: string;
-  email: string;
-  phone: string;
-}
-
 export interface CheckoutRequest {
   productId: string;
-  paymentMethod: PaymentMethod;
-  customer: CheckoutCustomer;
 }
 
 export type CheckoutResult =
-  /** Gateway retornou uma página de pagamento (ex.: link de checkout Pagar.me). */
+  /** Página de pagamento para onde a cliente deve ir (ex.: link do Pagar.me). */
   | { status: 'redirect'; url: string }
-  /** Pagamento online ainda não configurado. */
+  /** Pagamento online ainda não configurado para o produto. */
   | { status: 'unavailable' };

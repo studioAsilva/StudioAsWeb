@@ -15,7 +15,8 @@
 
 .hero__media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
+  max-height: 55svh;
 
   // Imagem em modo "fill" do NgOptimizedImage: ocupa todo o contêiner
   img {
@@ -36,6 +37,7 @@
     inset: 0 0 0 auto;
     width: 50%;
     aspect-ratio: auto;
+    max-height: none;
 
     &::after {
       background: linear-gradient(to right, var(--color-bg-soft) 0%, transparent 30%);
@@ -76,4 +78,19 @@
 
 .hero__description {
   margin-block: var(--space-4) var(--space-12);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+
+  // Celular: botões empilhados, na largura toda
+  @include down(sm) {
+    flex-direction: column;
+
+    app-cta-link {
+      width: 100%;
+    }
+  }
 }
