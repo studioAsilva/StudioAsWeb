@@ -1,39 +1,35 @@
 @let p = product();
 <article class="card" [attr.aria-labelledby]="p.id + '-title'">
-  <img
-    class="card__image"
-    [ngSrc]="p.image.src"
-    [alt]="p.image.alt"
-    [width]="p.image.width"
-    [height]="p.image.height"
-    [priority]="priority()"
-  />
+  <div class="card__media">
+    <img
+      class="card__image"
+      [ngSrc]="p.image.src"
+      [alt]="p.image.alt"
+      [width]="p.image.width"
+      [height]="p.image.height"
+      [priority]="priority()"
+    />
+    <button class="card__overlay-button" type="button" (click)="details.emit(p)">
+      Ver detalhes<span class="visually-hidden">: {{ p.name }}</span>
+    </button>
+  </div>
 
   <div class="card__body">
     <h2 class="card__title" [id]="p.id + '-title'">{{ p.name }}</h2>
-    <p class="card__tagline">{{ p.tagline }}</p>
-    <p class="card__text">{{ p.description }}</p>
-
-    <ul class="card__features">
-      @for (feature of p.features; track feature) {
-        <li>{{ feature }}</li>
-      }
-    </ul>
-
-    @for (paragraph of p.closing; track $index) {
-      <p class="card__text">{{ paragraph }}</p>
-    }
-    @if (p.highlight) {
-      <p class="card__highlight">{{ p.highlight }}</p>
-    }
+    <p class="card__text">{{ p.tagline }}</p>
 
     <div class="card__footer">
       @if (p.priceInCents !== undefined) {
         <p class="card__price">{{ p.priceInCents / 100 | currency }}</p>
       }
-      <button class="btn btn--primary btn--lg btn--block" type="button" (click)="buy.emit(p)">
-        {{ p.buyLabel }}
-      </button>
+      <div class="card__actions">
+        <button class="btn btn--outline btn--md" type="button" (click)="details.emit(p)">
+          Detalhes
+        </button>
+        <button class="btn btn--primary btn--md" type="button" (click)="buy.emit(p)">
+          {{ p.priceInCents !== undefined ? 'Comprar' : 'Saber mais' }}
+        </button>
+      </div>
     </div>
   </div>
 </article>

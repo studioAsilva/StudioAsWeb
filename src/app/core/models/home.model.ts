@@ -8,6 +8,7 @@ export interface HeroContent {
   text: string;
   image: ImageAsset;
   cta: CallToAction;
+  secondaryCta?: CallToAction;
 }
 
 export interface Highlight {

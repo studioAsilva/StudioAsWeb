@@ -6,9 +6,9 @@ import {
   LOCALE_ID,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { CheckoutGateway } from '@features/checkout/checkout.gateway';
-import { PendingCheckoutGateway } from '@features/checkout/pending-checkout.gateway';
+import { PaymentLinkCheckoutGateway } from '@features/checkout/payment-link.gateway';
 import { routes } from './app.routes';
 
 registerLocaleData(localePt);
@@ -19,10 +19,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
+      // Parâmetros da URL (ex.: ?compra=) chegam nas páginas como input()
+      withComponentInputBinding(),
     ),
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-    // Troque por PagarmeCheckoutGateway quando a integração estiver pronta.
-    { provide: CheckoutGateway, useClass: PendingCheckoutGateway },
+    { provide: CheckoutGateway, useClass: PaymentLinkCheckoutGateway },
   ],
 };

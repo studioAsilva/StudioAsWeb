@@ -13,7 +13,12 @@
       </h1>
       <p class="hero__subtitle">{{ c.subtitle }}</p>
       <p class="hero__description">{{ c.text }}</p>
-      <app-cta-link [cta]="c.cta" />
+      <div class="hero__actions">
+        <app-cta-link [cta]="c.cta" />
+        @if (c.secondaryCta; as secondary) {
+          <app-cta-link [cta]="secondary" variant="outline" />
+        }
+      </div>
     </div>
   </div>
 </section>

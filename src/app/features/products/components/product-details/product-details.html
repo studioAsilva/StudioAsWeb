@@ -1,0 +1,101 @@
+@let p = product();
+<app-modal size="lg" labelledBy="product-details-title" (closed)="closed.emit()">
+  <header class="head">
+    <p class="eyebrow head__label">Detalhes do produto</p>
+    <button class="head__close" type="button" aria-label="Fechar" (click)="close()">×</button>
+  </header>
+
+  <div class="body">
+    <div class="gallery">
+      <div class="gallery__stage">
+        <!-- Recria a imagem ao trocar a foto (NgOptimizedImage não troca ngSrc em uso) -->
+        @for (image of [selectedImage()]; track image.src) {
+          <img class="gallery__main" [ngSrc]="image.src" [alt]="image.alt" fill priority />
+        }
+      </div>
+      @if (images().length > 1) {
+        <div class="gallery__thumbs" role="group" aria-label="Fotos do produto">
+          @for (image of images(); track image.src) {
+            <button
+              class="thumb"
+              type="button"
+              [class.is-active]="$index === selectedIndex()"
+              [attr.aria-pressed]="$index === selectedIndex()"
+              [attr.aria-label]="'Foto ' + ($index + 1)"
+              (click)="selectedIndex.set($index)"
+            >
+              <img [ngSrc]="image.src" alt="" [width]="image.width" [height]="image.height" />
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="title-row">
+      <h2 id="product-details-title" class="title">{{ p.name }}</h2>
+      @if (p.priceInCents !== undefined) {
+        <p class="price">{{ p.priceInCents / 100 | currency }}</p>
+      }
+    </div>
+    <span class="divider" aria-hidden="true"></span>
+
+    <p class="tagline">{{ p.tagline }}</p>
+    <p class="text">{{ p.description }}</p>
+
+    @for (section of p.sections; track section.title) {
+      <section class="block">
+        <h3 class="eyebrow block__title">{{ section.title }}</h3>
+        @if (section.lead) {
+          <p class="block__lead">{{ section.lead }}</p>
+        }
+        <ul class="chips">
+          @for (item of section.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    <section class="block">
+      <h3 class="eyebrow block__title">O que está incluído</h3>
+      <ul class="features">
+        @for (feature of p.features; track feature) {
+          <li>{{ feature }}</li>
+        }
+      </ul>
+    </section>
+
+    @for (paragraph of p.closing; track $index) {
+      <p class="text">{{ paragraph }}</p>
+    }
+    @if (p.highlight) {
+      <p class="highlight">{{ p.highlight }}</p>
+    }
+
+    @if (p.info.length) {
+      <section class="info">
+        <h3 class="eyebrow block__title">{{ p.infoTitle ?? 'Entrega e informações' }}</h3>
+        <dl class="info__list">
+          @for (item of p.info; track item.title) {
+            <div class="info__item">
+              <app-icon [name]="item.icon" />
+              <div>
+                <dt>{{ item.title }}</dt>
+                <dd>{{ item.text }}</dd>
+              </div>
+            </div>
+          }
+        </dl>
+      </section>
+    }
+  </div>
+
+  <footer class="foot">
+    <button class="btn btn--primary btn--lg foot__buy" type="button" (click)="buy.emit(p)">
+      {{ p.buyLabel }}
+    </button>
+    <button class="btn btn--outline btn--lg foot__close" type="button" (click)="close()">
+      Fechar
+    </button>
+  </footer>
+</app-modal>
