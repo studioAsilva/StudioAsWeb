@@ -27,7 +27,7 @@
           Detalhes
         </button>
         <button class="btn btn--primary btn--md" type="button" (click)="buy.emit(p)">
-          {{ p.priceInCents !== undefined ? 'Comprar' : 'Saber mais' }}
+          {{ p.cardActionLabel ?? 'Comprar' }}
         </button>
       </div>
     </div>

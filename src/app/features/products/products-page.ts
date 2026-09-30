@@ -28,7 +28,12 @@ export default class ProductsPage {
   readonly compra = input<string>();
 
   protected readonly content = inject(PRODUCTS_CONTENT);
-  protected readonly products = this.content.products.filter((p) => p.published);
+  protected readonly groups = this.content.categories
+    .map((category) => ({
+      ...category,
+      products: this.content.products.filter((p) => p.published && p.category === category.id),
+    }))
+    .filter((group) => group.products.length > 0);
   protected readonly detailsProduct = signal<Product | null>(null);
   protected readonly checkoutProduct = signal<PricedProduct | null>(null);
   protected readonly purchasedProduct = computed(() =>

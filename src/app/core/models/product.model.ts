@@ -15,10 +15,18 @@ export interface ProductSection {
   items: string[];
 }
 
+/** Grupo da página de produtos, exibido com um banner (ex.: "Editáveis"). */
+export interface ProductCategory {
+  id: string;
+  title: string;
+}
+
 export interface Product {
   id: string;
   /** false = cadastrado, mas ainda não aparece no site. */
   published: boolean;
+  /** `id` de uma das `categories` da página. */
+  category: string;
   name: string;
   /** Frase curta: aparece no card e em destaque nos detalhes. */
   tagline: string;
@@ -50,6 +58,8 @@ export interface Product {
   thumbnail?: ImageAsset;
   /** Texto do botão de compra nos detalhes. */
   buyLabel: string;
+  /** Texto curto do botão de compra no card (padrão: "Comprar"). */
+  cardActionLabel?: string;
 }
 
 /** Produto com preço definido, apto a ir para o checkout. */
@@ -64,5 +74,7 @@ export interface ProductsPageContent {
   eyebrow: string;
   title: string;
   subtitle: string;
+  /** Ordem dos banners na página; categorias sem produto publicado não aparecem. */
+  categories: ProductCategory[];
   products: Product[];
 }

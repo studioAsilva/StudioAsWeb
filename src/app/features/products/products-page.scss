@@ -2,6 +2,44 @@
   margin-bottom: 0;
 }
 
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Faixa com o nome da categoria, com um traço de cada lado */
+.category__banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin: 0;
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+  color: var(--color-heading);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-primary);
+    opacity: 0.5;
+  }
+}
+
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 28rem));

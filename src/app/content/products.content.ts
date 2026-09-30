@@ -12,11 +12,19 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
   subtitle:
     'Produtos pensados por quem entende de cabelo. Para profissionais que querem crescer e para quem busca o melhor cuidado capilar.',
 
+  categories: [
+    { id: 'editaveis', title: 'Editáveis' },
+    { id: 'mentoria', title: 'Mentoria' },
+    { id: 'produtos', title: 'Produtos' },
+  ],
+
   // Para exibir um produto no site, marque `published: true`.
+  // Dentro de cada categoria, os produtos aparecem na ordem desta lista.
   products: [
     {
       id: 'tabela-valores-canva',
       published: true,
+      category: 'editaveis',
       name: 'Tabela de Valores Editável no Canva',
       tagline:
         'Apresente seus serviços de forma profissional, organizada e com a identidade do seu negócio.',
@@ -36,6 +44,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
       priceInCents: 4990, // TODO: valor provisório, a definir
+      // TODO: link de TESTE — trocar pelo link definitivo da tabela antes de publicar
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_LdlVNzrnZoW63WKSG9tP6ka45qpMGRA8',
       info: [
         {
           icon: 'download',
@@ -53,6 +63,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
     {
       id: 'mentoria-profissional',
       published: true,
+      category: 'mentoria',
       name: 'Mentoria Profissional com Ana Silva',
       tagline: 'Para profissionais da beleza que querem crescer com direção.',
       description:
@@ -102,10 +113,12 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       // Sem preço definido: o botão leva ao WhatsApp.
       image: { ...IMAGES.productMentoria, alt: 'Ana Silva segurando uma tesoura' },
       buyLabel: 'Quero contratar a mentoria',
+      cardActionLabel: 'Contratar',
     },
     {
       id: 'guia-pos-procedimento',
       published: true,
+      category: 'editaveis',
       name: 'Guia Pós-Procedimento Capilar Editável',
       tagline: 'Seu cuidado com a cliente continua depois que ela sai do salão.',
       description:
@@ -121,6 +134,9 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Transforme as dúvidas do pós-procedimento em uma oportunidade de demonstrar cuidado, fortalecer a confiança e oferecer uma experiência ainda mais completa.',
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
+      priceInCents: 4990, // TODO: valor provisório (copiado da tabela), a definir
+      // TODO: link de TESTE — trocar pelo definitivo antes de publicar
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_17vgQm53E8njNP4Sl5FryKbZMrzY4pwo',
       info: [
         {
           icon: 'download',
@@ -141,6 +157,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
     {
       id: 'perfume-capilar',
       published: true,
+      category: 'produtos',
       name: 'Perfume Capilar Studio AS',
       tagline: 'Um aroma marcante para acompanhar cada movimento dos seus cabelos.',
       description:
@@ -182,6 +199,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       checkoutNotice:
         'Produto físico: após a confirmação do pagamento, entraremos em contato pelo WhatsApp para combinar a entrega ou a retirada no Studio.',
       priceInCents: 8990, // TODO: valor provisório, a definir
+      // TODO: link de TESTE — trocar pelo definitivo antes de publicar
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_3eK1y7WGkPb0ojKigMCYLjvYODw49JEA',
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',
     },
