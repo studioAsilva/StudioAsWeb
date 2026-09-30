@@ -11,19 +11,24 @@
 </section>
 
 <section class="section" aria-label="Lista de produtos">
-  <div class="container">
-    <ul class="products">
-      @for (product of products; track product.id) {
-        <li>
-          <app-product-card
-            [product]="product"
-            [priority]="$first"
-            (details)="detailsProduct.set($event)"
-            (buy)="onBuy($event)"
-          />
-        </li>
-      }
-    </ul>
+  <div class="container categories">
+    @for (group of groups; track group.id; let firstGroup = $first) {
+      <section class="category" [attr.aria-labelledby]="'categoria-' + group.id">
+        <h2 class="category__banner" [id]="'categoria-' + group.id">{{ group.title }}</h2>
+        <ul class="products">
+          @for (product of group.products; track product.id) {
+            <li>
+              <app-product-card
+                [product]="product"
+                [priority]="firstGroup && $first"
+                (details)="detailsProduct.set($event)"
+                (buy)="onBuy($event)"
+              />
+            </li>
+          }
+        </ul>
+      </section>
+    }
   </div>
 </section>
 

@@ -105,25 +105,17 @@
   color: var(--color-primary);
 }
 
+// Os dois botões dividem a largura igualmente em todos os cards
 .card__actions {
   display: flex;
-  flex: 1;
-  justify-content: flex-end;
+  flex-basis: 100%;
   gap: var(--space-2);
 
   .btn {
+    flex: 1;
     padding-inline: var(--space-4);
     font-size: var(--fs-xs);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-  }
-
-  // Celular: botões dividem a largura
-  @include down(sm) {
-    flex-basis: 100%;
-
-    .btn {
-      flex: 1;
-    }
   }
 }
