@@ -44,8 +44,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
       priceInCents: 4990, // TODO: valor provisório, a definir
-      // TODO: link de TESTE — trocar pelo link definitivo da tabela antes de publicar
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_LdlVNzrnZoW63WKSG9tP6ka45qpMGRA8',
+      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_vL2AyZjmVPO1pGilvcGYXDWxNoeklJRp',
       info: [
         {
           icon: 'download',
@@ -135,8 +135,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
       priceInCents: 4990, // TODO: valor provisório (copiado da tabela), a definir
-      // TODO: link de TESTE — trocar pelo definitivo antes de publicar
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_17vgQm53E8njNP4Sl5FryKbZMrzY4pwo',
+      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_8YX3rdaWgxVRgpnIEh0jv7epGDqJ5LzZ',
       info: [
         {
           icon: 'download',
@@ -199,8 +199,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       checkoutNotice:
         'Produto físico: após a confirmação do pagamento, entraremos em contato pelo WhatsApp para combinar a entrega ou a retirada no Studio.',
       priceInCents: 8990, // TODO: valor provisório, a definir
-      // TODO: link de TESTE — trocar pelo definitivo antes de publicar
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_3eK1y7WGkPb0ojKigMCYLjvYODw49JEA',
+      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_QD7LWJ8VB52kq9fJeFNMkngdO30rbGYe',
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',
     },
