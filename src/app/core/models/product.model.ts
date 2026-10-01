@@ -47,8 +47,8 @@ export interface Product {
   /** Valor em centavos (padrão dos gateways). Sem valor = contato pelo WhatsApp. */
   priceInCents?: number;
   /**
-   * Link de pagamento do Pagar.me. No painel, configure a URL de retorno como
-   * `<site>/produtos?compra=<id>` para exibir o popup de confirmação na volta.
+   * Link de pagamento (criado pela API da Pagar.me/Stone). Crie com `flow_settings.success_url`
+   * = `<site>/produtos?compra=<id>` para exibir o popup de confirmação na volta.
    */
   paymentUrl?: string;
   image: ImageAsset;
