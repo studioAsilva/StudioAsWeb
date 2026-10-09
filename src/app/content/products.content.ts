@@ -22,6 +22,48 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
   // Dentro de cada categoria, os produtos aparecem na ordem desta lista.
   products: [
     {
+      id: 'combo-tabela-guia',
+      published: true,
+      category: 'editaveis',
+      badge: 'Combo',
+      name: 'Tabela de Valores + Guia Pós-Procedimento',
+      tagline: 'Mais profissionalismo em cada detalhe, do primeiro contato ao pós-atendimento.',
+      description:
+        'Os dois materiais editáveis juntos, por um valor especial. Apresente seus serviços com uma tabela de valores profissional e oriente suas clientes com um guia pós-procedimento claro e organizado — tudo com a identidade do seu negócio.',
+      features: [
+        'Tabela de Valores editável no Canva',
+        'Guia Pós-Procedimento Capilar editável',
+        'Personalização com suas cores, fontes e logo',
+        'Layouts profissionais e fáceis de usar',
+        'Ideal para enviar pelo WhatsApp ou publicar nas redes sociais',
+        'Valor especial em relação à compra separada',
+      ],
+      closing: [
+        'Transmita confiança desde o orçamento e continue cuidando da sua cliente depois que ela sai do salão.',
+      ],
+      highlight: 'Mais profissionalismo em cada detalhe.',
+      priceInCents: 3990,
+      compareAtPriceInCents: 4598, // soma dos dois avulsos — atualizar se mudarem os preços
+      // TODO: link de pagamento (criar com `npm run payment-links`)
+      info: [
+        {
+          icon: 'download',
+          title: 'Entrega',
+          text: 'Digital — os dois materiais por e-mail em até 24h após a confirmação do pagamento',
+        },
+        { icon: 'file', title: 'Formato', text: 'Arquivos editáveis para personalizar' },
+        { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
+      ],
+      checkoutNotice:
+        'Produto digital: os links dos dois materiais serão enviados para o seu e-mail assim que o pagamento for confirmado.',
+      image: { ...IMAGES.productCombo, alt: 'Retrato de Ana Silva' },
+      extraImages: [
+        { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
+        { ...IMAGES.productGuia, alt: 'Ana Silva, criadora do Guia Pós-Procedimento' },
+      ],
+      buyLabel: 'Quero o combo',
+    },
+    {
       id: 'tabela-valores-canva',
       published: true,
       category: 'editaveis',
@@ -43,8 +85,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Tenha um material bonito, profissional e alinhado ao seu negócio para apresentar seus serviços com mais segurança e conquistar a confiança das suas clientes.',
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
-      priceInCents: 4990, // TODO: valor provisório, a definir
-      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+      priceInCents: 2599,
+      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
       paymentUrl: 'https://payment-link-v3.stone.com.br/pl_vL2AyZjmVPO1pGilvcGYXDWxNoeklJRp',
       info: [
         {
@@ -55,6 +97,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'file', title: 'Formato', text: 'Arquivo editável no Canva' },
         { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
       ],
+      checkoutNotice:
+        'Produto digital: o link da sua tabela editável será enviado para o seu e-mail assim que o pagamento for confirmado.',
       image: { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
       extraImages: [{ ...IMAGES.productTabela2, alt: 'Ana Silva com o cabelo liso' }],
       thumbnail: { ...IMAGES.productTabelaThumb, alt: '' },
@@ -134,8 +178,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         'Transforme as dúvidas do pós-procedimento em uma oportunidade de demonstrar cuidado, fortalecer a confiança e oferecer uma experiência ainda mais completa.',
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
-      priceInCents: 4990, // TODO: valor provisório (copiado da tabela), a definir
-      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+      priceInCents: 1999,
+      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
       paymentUrl: 'https://payment-link-v3.stone.com.br/pl_8YX3rdaWgxVRgpnIEh0jv7epGDqJ5LzZ',
       info: [
         {
@@ -150,6 +194,8 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         },
         { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
       ],
+      checkoutNotice:
+        'Produto digital: o link do seu guia editável será enviado para o seu e-mail assim que o pagamento for confirmado.',
       image: { ...IMAGES.productGuia, alt: 'Retrato de Ana Silva' },
       extraImages: [{ ...IMAGES.productGuia2, alt: 'Ana Silva sentada no Studio' }],
       buyLabel: 'Quero meu guia pós-procedimento',
@@ -197,9 +243,9 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'pin', title: 'Retirada', text: 'Rua Poata, 604 — Eldorado, Contagem/MG' },
       ],
       checkoutNotice:
-        'Produto físico: após a confirmação do pagamento, entraremos em contato pelo WhatsApp para combinar a entrega ou a retirada no Studio.',
-      priceInCents: 8990, // TODO: valor provisório, a definir
-      // TODO: link de TESTE (cobra R$ 2,20, volta para ?compra=) — trocar pelo definitivo
+        'Produto físico: assim que o pagamento for confirmado, as informações para a entrega ou a retirada no Studio serão enviadas para o seu e-mail.',
+      priceInCents: 9990,
+      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
       paymentUrl: 'https://payment-link-v3.stone.com.br/pl_QD7LWJ8VB52kq9fJeFNMkngdO30rbGYe',
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',

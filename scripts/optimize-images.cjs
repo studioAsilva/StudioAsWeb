@@ -15,6 +15,7 @@ const jobs = [
   ['8347', 'product-guia.webp', 900, 640],
   ['tabela', 'product-tabela-2.webp', 900, 640],
   ['8332', 'product-guia-2.webp', 900, 640],
+  ['principal', 'product-combo.webp', 900, 640],
 ];
 (async () => {
   for (const [name, file, width, height] of jobs) {

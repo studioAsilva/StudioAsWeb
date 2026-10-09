@@ -46,6 +46,10 @@ export interface Product {
   checkoutNotice?: string;
   /** Valor em centavos (padrão dos gateways). Sem valor = contato pelo WhatsApp. */
   priceInCents?: number;
+  /** Preço "de" riscado ao lado do valor (ex.: soma dos itens de um combo), em centavos. */
+  compareAtPriceInCents?: number;
+  /** Selo de destaque sobre a foto do card (ex.: "Combo"). */
+  badge?: string;
   /**
    * Link de pagamento (criado pela API da Pagar.me/Stone). Crie com `flow_settings.success_url`
    * = `<site>/produtos?compra=<id>` para exibir o popup de confirmação na volta.
