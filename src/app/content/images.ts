@@ -18,4 +18,5 @@ export const IMAGES = {
   productGuia: image('product-guia.webp', 900, 640),
   productTabela2: image('product-tabela-2.webp', 900, 640),
   productGuia2: image('product-guia-2.webp', 900, 640),
+  productCombo: image('product-combo.webp', 900, 640),
 } as const;

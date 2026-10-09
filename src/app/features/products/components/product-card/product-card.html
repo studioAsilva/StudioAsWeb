@@ -9,6 +9,9 @@
       [height]="p.image.height"
       [priority]="priority()"
     />
+    @if (p.badge) {
+      <span class="card__badge">{{ p.badge }}</span>
+    }
     <button class="card__overlay-button" type="button" (click)="details.emit(p)">
       Ver detalhes<span class="visually-hidden">: {{ p.name }}</span>
     </button>
@@ -20,7 +23,16 @@
 
     <div class="card__footer">
       @if (p.priceInCents !== undefined) {
-        <p class="card__price">{{ p.priceInCents / 100 | currency }}</p>
+        <p class="card__price">
+          @if (p.compareAtPriceInCents) {
+            <s class="card__price-old"
+              ><span class="visually-hidden">De </span
+              >{{ p.compareAtPriceInCents / 100 | currency }}</s
+            >
+            <span class="visually-hidden">por</span>
+          }
+          {{ p.priceInCents / 100 | currency }}
+        </p>
       }
       <div class="card__actions">
         <button class="btn btn--outline btn--md" type="button" (click)="details.emit(p)">

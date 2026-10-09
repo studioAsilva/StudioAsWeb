@@ -10,6 +10,11 @@
       detalhes por e-mail. 💌
     </p>
 
+    <p class="return__spam">
+      <strong>Não encontrou o e-mail?</strong> Confira a caixa de <strong>spam</strong> ou lixo
+      eletrônico — às vezes ele vai parar lá.
+    </p>
+
     @if (product(); as p) {
       @let thumb = p.thumbnail ?? p.image;
       <div class="product">
@@ -24,7 +29,7 @@
     }
 
     <p class="return__hint">
-      Pagou com Pix? A aprovação pode levar alguns minutos. Confira também a caixa de spam.
+      Pagou com Pix? A aprovação pode levar alguns minutos.
     </p>
 
     <button class="btn btn--primary btn--lg" type="button" (click)="close()">Concluir</button>

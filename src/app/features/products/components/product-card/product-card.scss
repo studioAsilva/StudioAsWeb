@@ -39,6 +39,22 @@
   object-position: top center;
 }
 
+.card__badge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 1;
+  padding: var(--space-1) var(--space-4);
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
 .card__overlay-button {
   position: absolute;
   bottom: var(--space-4);
@@ -103,6 +119,12 @@
   font-size: 1.75rem;
   line-height: 1;
   color: var(--color-primary);
+}
+
+.card__price-old {
+  margin-right: var(--space-2);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
 }
 
 // Os dois botões dividem a largura igualmente em todos os cards

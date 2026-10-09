@@ -34,7 +34,16 @@
     <div class="title-row">
       <h2 id="product-details-title" class="title">{{ p.name }}</h2>
       @if (p.priceInCents !== undefined) {
-        <p class="price">{{ p.priceInCents / 100 | currency }}</p>
+        <p class="price">
+          @if (p.compareAtPriceInCents) {
+            <s class="price__old"
+              ><span class="visually-hidden">De </span
+              >{{ p.compareAtPriceInCents / 100 | currency }}</s
+            >
+            <span class="visually-hidden">por</span>
+          }
+          {{ p.priceInCents / 100 | currency }}
+        </p>
       }
     </div>
     <span class="divider" aria-hidden="true"></span>
