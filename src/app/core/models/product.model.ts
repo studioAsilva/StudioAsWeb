@@ -42,7 +42,7 @@ export interface Product {
   infoTitle?: string;
   /** Mensagem do WhatsApp para produtos sem preço (há uma mensagem padrão). */
   whatsappMessage?: string;
-  /** Aviso exibido no checkout (ex.: como funciona a entrega de produto físico). */
+  /** Aviso exibido no checkout (ex.: como funciona a entrega). Aceita `<strong>` para destaque. */
   checkoutNotice?: string;
   /** Valor em centavos (padrão dos gateways). Sem valor = contato pelo WhatsApp. */
   priceInCents?: number;

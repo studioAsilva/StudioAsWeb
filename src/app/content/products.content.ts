@@ -44,7 +44,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       highlight: 'Mais profissionalismo em cada detalhe.',
       priceInCents: 3990,
       compareAtPriceInCents: 4598, // soma dos dois avulsos — atualizar se mudarem os preços
-      // TODO: link de pagamento (criar com `npm run payment-links`)
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_KzxlVn3Nvj72m5PFKKfRX2Oy0oL96qbp',
       info: [
         {
           icon: 'download',
@@ -55,7 +55,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
       ],
       checkoutNotice:
-        'Produto digital: os links dos dois materiais serão enviados para o seu e-mail assim que o pagamento for confirmado.',
+        'Produto digital: os links dos dois materiais <strong>serão enviados para o seu e-mail assim que o pagamento for confirmado</strong>.',
       image: { ...IMAGES.productCombo, alt: 'Retrato de Ana Silva' },
       extraImages: [
         { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
@@ -86,8 +86,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu trabalho desde o primeiro contato.',
       priceInCents: 2599,
-      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_vL2AyZjmVPO1pGilvcGYXDWxNoeklJRp',
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_MdPzjgeoyGXmBNyRSXH05J4O36xw0ZRk',
       info: [
         {
           icon: 'download',
@@ -98,7 +97,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
       ],
       checkoutNotice:
-        'Produto digital: o link da sua tabela editável será enviado para o seu e-mail assim que o pagamento for confirmado.',
+        'Produto digital: o link da sua tabela editável <strong>será enviado para o seu e-mail assim que o pagamento for confirmado</strong>.',
       image: { ...IMAGES.productTabela, alt: 'Ana Silva apresentando a Tabela de Valores' },
       extraImages: [{ ...IMAGES.productTabela2, alt: 'Ana Silva com o cabelo liso' }],
       thumbnail: { ...IMAGES.productTabelaThumb, alt: '' },
@@ -179,8 +178,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
       ],
       highlight: 'Valorize seu atendimento em cada detalhe.',
       priceInCents: 1999,
-      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_8YX3rdaWgxVRgpnIEh0jv7epGDqJ5LzZ',
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_V8aOdp3blgoP6rmauvfvZE7wjND25nBy',
       info: [
         {
           icon: 'download',
@@ -195,7 +193,7 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'infinity', title: 'Acesso', text: 'Vitalício — edite quando quiser' },
       ],
       checkoutNotice:
-        'Produto digital: o link do seu guia editável será enviado para o seu e-mail assim que o pagamento for confirmado.',
+        'Produto digital: o link do seu guia editável <strong>será enviado para o seu e-mail assim que o pagamento for confirmado</strong>.',
       image: { ...IMAGES.productGuia, alt: 'Retrato de Ana Silva' },
       extraImages: [{ ...IMAGES.productGuia2, alt: 'Ana Silva sentada no Studio' }],
       buyLabel: 'Quero meu guia pós-procedimento',
@@ -243,10 +241,9 @@ export const PRODUCTS_CONTENT_DATA: ProductsPageContent = {
         { icon: 'pin', title: 'Retirada', text: 'Rua Poata, 604 — Eldorado, Contagem/MG' },
       ],
       checkoutNotice:
-        'Produto físico: assim que o pagamento for confirmado, as informações para a entrega ou a retirada no Studio serão enviadas para o seu e-mail.',
+        'Produto físico: as informações para a entrega ou a retirada no Studio <strong>serão enviadas para o seu e-mail assim que o pagamento for confirmado</strong>.',
       priceInCents: 9990,
-      // TODO: link de TESTE (R$ 2,20) — trocar pelo criado com `npm run payment-links`
-      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_QD7LWJ8VB52kq9fJeFNMkngdO30rbGYe',
+      paymentUrl: 'https://payment-link-v3.stone.com.br/pl_48pO5LBdEVq9jxAIPf0JzeWxlbRJmaMY',
       image: { ...IMAGES.productPerfume, alt: 'Ana Silva segurando o Perfume Capilar Studio AS' },
       buyLabel: 'Quero meu perfume capilar',
     },

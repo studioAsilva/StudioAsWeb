@@ -72,6 +72,12 @@
   border-radius: var(--radius-sm);
   background: var(--color-bg-soft);
   font-size: var(--fs-sm);
+
+  // O aviso vem do conteúdo via [innerHTML], fora do escopo de estilos do componente
+  ::ng-deep strong {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
 }
 
 .total {

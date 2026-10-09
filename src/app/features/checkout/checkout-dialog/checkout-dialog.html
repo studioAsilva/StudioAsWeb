@@ -30,7 +30,7 @@
   } @else {
     <div class="content">
       @if (p.checkoutNotice) {
-        <p class="notice" role="note">{{ p.checkoutNotice }}</p>
+        <p class="notice" role="note" [innerHTML]="p.checkoutNotice"></p>
       }
 
       <div class="total">
